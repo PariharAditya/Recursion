@@ -1,4 +1,4 @@
-package String;
+package StringQuestion;
 import java.util.ArrayList;
 
 public class string_Recursion_Permutation {

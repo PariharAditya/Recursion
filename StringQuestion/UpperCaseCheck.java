@@ -1,4 +1,4 @@
-package String;
+package StringQuestion;
 public class UpperCaseCheck {
     public static void main(String[] args) {
         System.out.println(check("SDEadityasinghParihar"));

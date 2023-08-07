@@ -1,4 +1,4 @@
-package String;
+package StringQuestion;
 import java.util.Arrays;
 
 // whenever inplace opertion use swapping method
