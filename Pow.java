@@ -1,6 +1,7 @@
 public class Pow {
     public static void main(String[] args) {
-        System.out.println(myPow(2.000, 10));        
+        System.out.println(myPow(2.000, 10));
+        System.out.println(recursiveWay(2.000, 10));        
     }
     static double myPow(double x,int n) {
         double ans = 1.0;
@@ -28,4 +29,19 @@ public class Pow {
 
         return ans;
     }
+    
+    static double recursiveWay(double x, int n) {
+        if (n==0) {
+            return 1.0;
+        }
+
+        if (n%2==0) {
+            double ans = myPow(x, n/2);
+            return ans*ans;
+        } else {
+            double ans = myPow(x, (n-1)/2);
+            return x*ans*ans;
+        }
+    }
+
 }
