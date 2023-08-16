@@ -1,32 +1,32 @@
 package StringQuestion;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class String_Letter_Combination {
+    private final static String[] mapping = { "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv","wxyz"  };
+
     public static void main(String[] args) {
-        System.out.println(fxn("", "2"));
-        System.out.print(letterCombinations("12"));
+        System.out.println(letterCombinations("23")); 
     }
 
     static List<String> letterCombinations(String digits) {
-        String answer = "";        
-        return fxn(answer, digits);
+        List<String> output = new ArrayList<>();
+        backtrack(output, "", digits, 0);
+        return output;
     }
 
-    private static List<String> fxn(String answer, String str) {
-        if (str.isEmpty()) {
-            ArrayList<String> s = new ArrayList<>();
-            s.add(answer);
-            return s;
+    static void backtrack(List<String> result, String answer, String digit, int index) {
+        if (index == digit.length()) {
+            result.add(answer);
+            return;
         }
 
-        int numericValue = str.charAt(0)-'0';
+        int numericValue = digit.charAt(index) - '0';
+        String letter = mapping[numericValue];
 
-        ArrayList<String> finalAnswer = new ArrayList<>();
-        for (int i = (numericValue-1)*3; i < numericValue*3; i++) {
-            char c = (char) ('a' + i);
-            finalAnswer.addAll(fxn(answer+c, str.substring(1)));
+        for (char c : letter.toCharArray()) {
+            backtrack(result, answer + c, digit, index + 1);
         }
-        return finalAnswer;
     }
 }
